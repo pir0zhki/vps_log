@@ -46,9 +46,20 @@ echo $LANG
 ja_JP,UTF-8
 となっており、うまく反映されており、文字化けしなくなったが、
 後ほど別のコマンドを入力した際にまた文字化けしていた。。
+サーバを再起動させると
+echo $LANG →C
+になっていた。
+https://www.t3a.jp/blog/infrastructure/ubuntu-text-garbled/
+を元に再度ja_JP,UTF-8に変更した
+（一度rootにログインする必要あり）
+rootにログイン:sudo su -
+が、rootをログアウトしてubuntuにログインすると再びcになっていた
 
 
-
+解決
+GUIではLANG=ja_JP.UTF-8でokだが，コンソールでは文字化けの原因になってしまう
+sudo LANG=C apt update
+で英語表記にしたe
 
 
 
