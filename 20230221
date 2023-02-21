@@ -81,9 +81,25 @@ active
 
 Apache2導入
 https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-ja
+https://elec-hobby.com/vps-vol-03-apache/
 ディレクトリ表示のコマンド
 https://webkaru.net/linux/ls-command/
+パーミッションの読み方
+https://qiita.com/shisama/items/5f4c4fa768642aad9e06
 
+Apache
+ドメイン名でアクセスできない
+やってみたこと
+sudo cat /etc/resolv.confで
+nameserverのipアドレスを確認して
+sudo nano /etc/apache2/sites-available/test_domain.conf
+の*:80の部分にべた貼りした
+→変わらず（ちなみにこのまま）
+https://xtech.nikkei.com/it/article/COLUMN/20061031/252340/
+を試してみる
+cat では画面に収まりきらないのでlessコマンドなどを使う
+https://go-journey.club/archives/14030
+とかも使えそう
 
 疑問
 ssh認証ではマシンの公開鍵をサーバに渡し、サーバが公開鍵をつかって暗号化したものを受信し
