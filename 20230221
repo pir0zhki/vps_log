@@ -56,11 +56,33 @@ rootにログイン:sudo su -
 が、rootをログアウトしてubuntuにログインすると再びcになっていた
 
 
-解決
-GUIではLANG=ja_JP.UTF-8でokだが，コンソールでは文字化けの原因になってしまう
+解決?
+GUIではLANG=ja_JP.UTF-8でokだが，実機コンソールでは文字化けの原因になってしまうらしい
+（GUIのコンソールでは日本語のままで正常に動くらしい）
 sudo LANG=C apt update
-で英語表記にしたe
+で英語表記にした
+が、まだ文字化けしている
+localeで言語関連の環境変数の一覧を表示したところ、
+LANGUAGEだけjap_JP:jaになっていた。。これのせいかな？
+LANGUAGE=C
+を実行→文字化け解消！
+LANGのみならず、LANGUAGEもCに変更する必要があった
+参考https://eng-entrance.com/linux-localization-lang
 
+ufw（Uncomplicated FireWall）とは、Linuxの「Netfilter」によるファイアウォールを管理して操作するためのiptablesをラッパーした機能のことです。
+
+もう少しわかり易く言うなら、Linuxにはパケットフィルタリング(ファイアウォール)やNATを実現するための「Netfilter」という機能を標準で備えています。
+これを操作・管理するためのツールとしてiptablesというものがあり、iptablesによって非常に細かい設定が行えます。
+
+sudo ufw status
+inactive
+sudo ufw enable 
+active
+
+Apache2導入
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-ja
+ディレクトリ表示のコマンド
+https://webkaru.net/linux/ls-command/
 
 
 疑問
