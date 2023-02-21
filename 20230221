@@ -1,4 +1,60 @@
-putty
+putty.error
 no supported authenication methods available(sever sent:publickey)
 サポートされている認証方法がありません (送信されたサーバー: 公開鍵)
 
+マシンに公開鍵と秘密鍵を作成
+VPSにwindowsマシンの公開鍵を渡す
+puttyをクライアントとしてサーバに接続
+puttyにubuntuでログインしようとすると以下のerror
+No supported authenication methods avaliable(sever sent:publickey)
+鍵認証でSSH接続できない状態 
+
+原因究明のためにやったこと
+$ssh -l linuser 153.120.41.188
+でSSHクライアントのログを確認(ssh_client_log参照)
+ホスト認証→SSHサーバに接続まではできているが、これ以降、以下のerror
+pubkey_prepare: ssh_get_authentication_socket: No such file or directory
+・・・
+Permission denied (publickey)
+結果的に鍵認証に失敗している
+
+pubkey_prepare: ssh_get_authentication_socket: No such file or directory
+解決のため、↑で調べても未解決のものしか出てこなくて躓く
+ただ、「windowsではなく、macから同様の鍵認証でssh接続したところできた」という記事があったので
+仮想マシン上のubuntuで実行してみようとした
+時間かかりそうなのでapacheにすすんだ
+
+apacheのインストールerror？
+no vm guests are running outdated hypervisor binaries on this host
+このホストで古いハイパーバイザー バイナリを実行している VM ゲストはいません
+→wsl2の仕様の問題らしく、とりあえず無視して大丈夫っぽい
+その後、正常にインストールできたかどうかufwアプリケーションプロファイル一覧を表示させようとしたが、
+文字化けしてしまってerrorの内容が見えなかった
+
+
+以前，文字化けするので
+vi ~/.bashrc
+を開き、文末に
+case $TERM in
+      linux) LANG=C ;;
+      *)       LANG=ja_JP.UTF-8;;
+esac
+を挿入した
+元の文字コードを調べ忘れたのだが、とりあえず
+echo $LANG
+を実行すると
+ja_JP,UTF-8
+となっており、うまく反映されており、文字化けしなくなったが、
+後ほど別のコマンドを入力した際にまた文字化けしていた。。
+
+
+
+
+
+
+疑問
+ssh認証ではマシンの公開鍵をサーバに渡し、サーバが公開鍵をつかって暗号化したものを受信し
+マシンの秘密鍵で復号して送信し、サーバ側で暗号前のデータと一致していれば認証するもの
+だと認識しているが、
+https://www.server-world.info/query?os=Ubuntu_22.04&p=ssh&f=4
+では「サーバの秘密鍵をマシンに登録する」という工程があり、理解できず中断してしまった。。
