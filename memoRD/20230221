@@ -126,7 +126,7 @@ seach .
 となっていた
 DHCPを使ってネットワークの設定を取得すると自動生成されるファイルで
 本来
-namesever DNSサーバのip 
+namesever DNSサーバのip(DHCPサーバが自動で引っ張ってくるDNSサーバ)
 domain　*localdomain 
 *コンピュータが所属するドメイン名にするとホスト名だけでそのホストにアクセスできるようになるらしい
 search domainを複数指定できる
@@ -138,14 +138,15 @@ $nslookup test_domain 127.0.0.53
 dnsサーバに名前解決を問い合わせたがtest_domainなんかないと言われた
 dnsサーバの設定を行う必要があることが判明
 
-this file might be  symlinked as /etc/resolv.conf. If you're looking at /etc/resolv.conf. 
-and seekng this text,you have followed the symlink
-このファイルは、/etc/resolv.conf としてシンボリック リンクされている可能性があります。 /etc/resolv.conf を見ている場合。
-このテキストを探している場合、シンボリックリンクをたどっています
-
-
 sudo cat /etc/resolv.confで
-nameserverのipアドレス
+nameseresolv.confとは、リゾルバの設定ファイルになります。
+
+リゾルバとは、DNSサーバにドメイン名で問い合わせを行いIPアドレスを調べたり、
+その逆でIPアドレスで問い合わせを行いドメイン名を調べるソフトウェアになります。
+domain行とsearch行はどちらかを指定
+両方指定するとまずは上の行に問い合わせて，応答がない場合下の行に問い合わせる
+
+
 疑問
 ssh認証ではマシンの公開鍵をサーバに渡し、サーバが公開鍵をつかって暗号化したものを受信し
 マシンの秘密鍵で復号して送信し、サーバ側で暗号前のデータと一致していれば認証するもの
