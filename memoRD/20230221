@@ -90,17 +90,62 @@ https://qiita.com/shisama/items/5f4c4fa768642aad9e06
 Apache
 ドメイン名でアクセスできない
 やってみたこと
-sudo cat /etc/resolv.confで
-nameserverのipアドレスを確認して
+
+サーバのipアドレスを
 sudo nano /etc/apache2/sites-available/test_domain.conf
 の*:80の部分にべた貼りした
-→変わらず（ちなみにこのまま）
+→変わらない
+153.120.41.188:80
+にしてみた
+→変わらない
+
 https://xtech.nikkei.com/it/article/COLUMN/20061031/252340/
 を試してみる
 cat では画面に収まりきらないのでlessコマンドなどを使う
 https://go-journey.club/archives/14030
 とかも使えそう
+https://httpd.apache.org/docs/2.4/ja/dns-caveats.html
+↑詳しい
+Apache が設定ファイルを読み込むときに DNS を使用する必要がないようにするべきらしい
+信頼性の問題などがあるらしい
+testdomain.confにIPアドレスが含まれていない場合，ApacheはDNSを利用して*:80部分を見つけることになる(ドメインベース)
+*:80部分にサーバのIPアドレスApacheはDNS逆引きを使用してバーチャルホストのServerNameを見つける(IPアドレスベース)
+IPアドレスベースだとおおむね動作するらしい(アドレスが変更される可能性が高いなら非推奨？)
+ドメインベースの場合はIPアドレスを探索し，IPアドレスベースの場合はドメインを探索する
+どっちにしてもドメインとIPアドレスが紐づけられていないと動作しない
+httpd.confを確認
+https://www.javadrive.jp/apache/ini/index11.html
 
+DNSサーバの設定
+/etc/resolv.conf
+host名からipアドレスを調べる設定を行う
+
+namesever 127.0.0.53
+options edns0 trust-ad
+seach .
+となっていた
+DHCPを使ってネットワークの設定を取得すると自動生成されるファイルで
+本来
+namesever DNSサーバのip 
+domain　*localdomain 
+*コンピュータが所属するドメイン名にするとホスト名だけでそのホストにアクセスできるようになるらしい
+search domainを複数指定できる
+
+nameseverが不適切だと名前解決に対する動作がおかしくなるそう
+https://linuc.org/study/knowledge/507/
+
+$nslookup test_domain 127.0.0.53
+dnsサーバに名前解決を問い合わせたがtest_domainなんかないと言われた
+dnsサーバの設定を行う必要があることが判明
+
+this file might be  symlinked as /etc/resolv.conf. If you're looking at /etc/resolv.conf. 
+and seekng this text,you have followed the symlink
+このファイルは、/etc/resolv.conf としてシンボリック リンクされている可能性があります。 /etc/resolv.conf を見ている場合。
+このテキストを探している場合、シンボリックリンクをたどっています
+
+
+sudo cat /etc/resolv.confで
+nameserverのipアドレス
 疑問
 ssh認証ではマシンの公開鍵をサーバに渡し、サーバが公開鍵をつかって暗号化したものを受信し
 マシンの秘密鍵で復号して送信し、サーバ側で暗号前のデータと一致していれば認証するもの
