@@ -21,7 +21,7 @@ locale
 <br>
 結果<br>
 
-<img src="./PrtSc/LANG.png">
+<img src="../PrtSc/LANG.png">
 
 LANGUAGEだけjap_JP:jaになっていた...
 
