@@ -1,0 +1,17 @@
+
+2023-03-03 12:42:06	Remote version: SSH-2.0-OpenSSH_8.9p1 Ubuntu-3
+2023-03-03 12:42:06	Using SSH protocol version 2
+2023-03-03 12:42:06	No GSSAPI security context available
+2023-03-03 12:42:07	Doing NTRU Prime / Curve25519 hybrid key exchange, using hash SHA-512 (unaccelerated)
+2023-03-03 12:42:07	Host key fingerprint is:
+2023-03-03 12:42:07	ssh-ed25519 255 SHA256:tnqJim1Z0Kaoh4cZKSRorlBnVGk/fj9gJGBbJukNa6I
+2023-03-03 12:42:27	Initialised AES-256 SDCTR (AES-NI accelerated) outbound encryption
+2023-03-03 12:42:27	Initialised HMAC-SHA-256 (SHA-NI accelerated) outbound MAC algorithm
+2023-03-03 12:42:27	Initialised AES-256 SDCTR (AES-NI accelerated) inbound encryption
+2023-03-03 12:42:27	Initialised HMAC-SHA-256 (SHA-NI accelerated) inbound MAC algorithm
+2023-03-03 12:42:39	Sent password
+2023-03-03 12:42:40	Access granted
+2023-03-03 12:42:40	Opening main session channel
+2023-03-03 12:42:41	Opened main channel
+2023-03-03 12:42:41	Allocated pty
+2023-03-03 12:42:41	Started a shell/command
