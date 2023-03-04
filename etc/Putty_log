@@ -19,16 +19,16 @@ id_ed25519.pubをvpsの管理画面から登録
 
 id_ed25519.pubを/etc/ssh/authorized_keysに設置後
 
-2023-03-03 14:04:01	Looking up host "153.120.41.188" for SSH connection
-2023-03-03 14:04:01	Connecting to 153.120.41.188 port 22
+2023-03-03 14:04:01	Looking up host "153..." for SSH connection
+2023-03-03 14:04:01	Connecting to 153... port 22
 2023-03-03 14:04:01	We claim version: SSH-2.0-PuTTY_Unidentified_Local_Build
-2023-03-03 14:04:01	Connected to 153.120.41.188
+2023-03-03 14:04:01	Connected to 153...
 2023-03-03 14:04:01	Remote version: SSH-2.0-OpenSSH_8.9p1 Ubuntu-3
 2023-03-03 14:04:01	Using SSH protocol version 2
 2023-03-03 14:04:01	No GSSAPI security context available
 2023-03-03 14:04:01	Doing NTRU Prime / Curve25519 hybrid key exchange, using hash SHA-512 (unaccelerated)
 2023-03-03 14:04:01	Host key fingerprint is:
-2023-03-03 14:04:01	ssh-ed25519 255 SHA256:tnqJim1Z0Kaoh4cZKSRorlBnVGk/fj9gJGBbJukNa6I
+2023-03-03 14:04:01	ssh-ed25519 255 SHA256:tnqJim1Z0K...
 2023-03-03 14:04:01	Initialised AES-256 SDCTR (AES-NI accelerated) outbound encryption
 2023-03-03 14:04:01	Initialised HMAC-SHA-256 (SHA-NI accelerated) outbound MAC algorithm
 2023-03-03 14:04:01	Initialised AES-256 SDCTR (AES-NI accelerated) inbound encryption
