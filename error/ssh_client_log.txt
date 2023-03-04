@@ -1,7 +1,7 @@
 コンソール C:\Users\coral.ssh>ssh -v -l linuser -i id_rsa 153.120.41.188
 ログ付きでサーバに接続しまーす
 
-Connecting to 153.120.41.188 [153.120.41.188] port 22.
+Connecting to 153... [153...] port 22.
 Connection established.
 
 Local version string SSH-2.0-OpenSSH_for_Windows_8.1
@@ -14,8 +14,8 @@ Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3ubunt
 match: OpenSSH_8.9p1 Ubuntu-3ubuntu0.1 pat OpenSSH* compat 0x04000000
 一致
 
-Authenticating to 153.120.41.188:22 as 'linuser'
-「linuser」として 153.120.41.188:22 への認証
+Authenticating to 153...:22 as 'linuser'
+「linuser」として 153...:22 への認証
 
 kex: algorithm: curve25519-sha256
 kex: host key algorithm: ecdsa-sha2-nistp256
@@ -29,8 +29,8 @@ SSH2_MSG_NEWKEYS received
 受け取りました
 
 Server host key: ecdsa-sha2-nistp256 SHA256:cvfmBW3/z643nV7ed+meqY1W4YhGgYr1xTrH1hjmzOA
-Host '153.120.41.188' is known and matches the ECDSA host key.
-ホスト '153.120.41.188' は既知であり、ECDSA ホスト キーと一致します。
+Host '153...' is known and matches the ECDSA host key.
+ホスト '153...' は既知であり、ECDSA ホスト キーと一致します。
 
 Found key in C:\Users\coral/.ssh/known_hosts:2
 
@@ -78,5 +78,5 @@ Authentications that can continue: publickey
 No more authentication methods to try.
 もう認証方法を試す必要はありません。
 
-linuser@153.120.41.188: Permission denied (publickey).
-linuser@153.120.41.188: 許可が拒否されました (公開鍵)。
+linuser@153...: Permission denied (publickey).
+linuser@153...: 許可が拒否されました (公開鍵)。
