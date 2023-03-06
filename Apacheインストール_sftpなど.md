@@ -28,7 +28,8 @@ put -r transcription
 https://elec-hobby.com/vps-vol-03-apache/#toc8<br>
 前回同様上手くいかず，/etc/apache2/sites-availabale/内の<br>
 000-default.conをローカルにコピーした後，消去して再起動，表示される<br>
-参考:https://github.com/pir0zhki/vps_log/blob/main/20230228.md
+参考:以下pageの[webサイトの設置」<br>
+https://github.com/pir0zhki/vps_log/blob/main/20230228.md
 
 #### jsonファイルのパースエラーについてのメモ
 コンソールに以下のerror<br>
