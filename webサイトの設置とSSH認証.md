@@ -13,7 +13,7 @@ transcription.confを作成しrootを<br>
 以前のconfファイルを消去して，transcription.confを有効化<br>
 <br>
 成功。
-## SSH接続(未解決)
+## SSH接続
 https://super-vitality.com/ssh-setuzoku/ <br>
 を基に実施
 
@@ -46,6 +46,9 @@ linux/ubuntu-22.04/home/coral/.ssh<br>
 サーバ側に置いた公開鍵のパス:<br>
 home/coral/.ssh/id_rsa.pubとhome/coral/.ssh/authorized_keys/id_rsa.pub<br>
 →接続できず<br>
+### 解決
+- SSH接続関係の問題はubuntu22.04が標準でRSAに未対応であったことに起因
+- 別ページで記述
 
 
 
