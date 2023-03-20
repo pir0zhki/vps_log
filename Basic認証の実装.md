@@ -31,7 +31,7 @@ httpd.confを編集して解決<br>
 
 参考：https://marketing-wizard.biz/blog/server/basic-htaccess/
 
-# 2.サーバのwebページにBasic認証を実装(未解決)
+# 2.サーバのwebページにBasic認証を実装
 ローカル環境で作成したファイルを移動させたがwebページ自体が表示されず<br>
 調べると一般的な実装方法が結構違ったので１から作成<br>
 参考：https://beyondjapan.com/blog/2022/09/apache_basic_auth/#basic-2
@@ -76,7 +76,9 @@ sudo systemctl restart apache2
 ・httpd.confファイルを探して [ローカル同様](#ps)の編集を行う<br>
 (httpd.serviceが存在しない代わりに，apache.serviceという機能があるらしく，
 httpd.confファイルと同等のファイルを探して編集することが考えられる)<br>
-(よく調べておらず調査中の情報です。。)
+
+## 解決?
+- 全てのpathをフルパスで記述するように書き直したらできた
 
 
 
